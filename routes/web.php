@@ -14,5 +14,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Frontend.layout');
+    return view('Frontend.Page.home');
+});
+
+Route::get('apply-online', function () {
+    return view('Frontend.Registration.apply_form');
+});
+
+Route::get('merit-list', function () {
+    return view('Frontend.Page.merit_list');
+});
+
+Route::get('contact-us', function () {
+    return view('Frontend.Page.contact_us');
+});
+
+Route::get('programs', function () {
+    return view('Frontend.Page.programs');
+});
+
+Route::get('events-and-news', function () {
+    return view('Frontend.Page.news_events');
+});
+
+
+Route::group(["prefix" => 'admin'], function(){
+    Route::get('layout', function () {
+        return view('Admin.layout');
+    });
 });
