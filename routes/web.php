@@ -42,4 +42,20 @@ Route::group(["prefix" => 'admin'], function(){
     Route::get('layout', function () {
         return view('Admin.layout');
     });
+
+    Route::get('view-sliders', function () {
+        return view('Admin.Slider.view_sliders');
+    });
+
+    Route::get('add-slider', function () {
+        return view('Admin.Slider.add_slider');
+    });
+
+    Route::get('view-news-and-updates', function () {
+        return view('Admin.NewsAndUpdate.view_news_and_updates');
+    });
+
+    Route::get('add-news-and-update', function () {
+        return view('Admin.NewsAndUpdate.add_news_and_update');
+    });
 });

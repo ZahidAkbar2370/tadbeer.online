@@ -61,13 +61,13 @@
 
                     <li class="label">Apps</li>
 
-                    <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Profile</a>
+                    {{-- <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Profile</a>
                         <ul>
                             <li><a href="#">Profile Setting</a></li>
                             <li><a href="#">Social Media</a></li>
                             <li><a href="#">Team Members</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
 
                     {{-- <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Students</a>
                         <ul>
@@ -80,47 +80,47 @@
                     {{-- <li><a href="#"><i class="ti-file"></i>Registrations</a></li> --}}
                     <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Registration</a>
                         <ul>
-                            <li><a href="{{url('admin/add-student-registration')}}">New Registration</a></li>
-                            <li><a href="{{url('admin/view-student-registrations')}}">List Registrations</a></li>
+                            <li><a href="#">New Registration</a></li>
+                            <li><a href="#">List Registrations</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="{{url('admin/view-categories')}}"><i class="ti-file"></i>Categories</a></li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Tutorial</a>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Sliders</a>
                         <ul>
-                            <li><a href="{{url('admin/add-tutorial')}}">Addd Tutorial</a></li>
-                            <li><a href="{{url('admin/view-tutorials')}}">All Tutorials</a></li>
+                            <li><a href="{{url('admin/add-slider')}}">Create</a></li>
+                            <li><a href="{{url('admin/view-sliders')}}">All Sliders</a></li>
                         </ul>
                     </li>
                     {{-- <li><a href="{{url('admin/view-tutorials')}}"><i class="ti-file"></i>Tutorials</a></li> --}}
 
-                    <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Posts</a>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>News & Updates</a>
                         <ul>
-                            <li><a href="{{url('admin/add-post')}}">Create Post</a></li>
-                            <li><a href="{{url('admin/view-posts')}}">List Posts</a></li>
-                            <li><a href="{{url('admin/view-post-comments')}}">Post Comments</a></li>
+                            <li><a href="{{url('admin/add-news-and-update')}}">Create</a></li>
+                            <li><a href="{{url('admin/view-news-and-updates')}}">All Listing</a></li>
                         </ul>
                     </li>
 
                     <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>SMS</a>
                         <ul>
-                            <li><a href="{{url('admin/create-sms')}}">Create SMS</a></li>
-                            <li><a href="{{url('admin/sms')}}">Sent SMS</a></li>
+                            <li><a href="#">Signal Message</a></li>
+                            <li><a href="#">Group Messages</a></li>
+                            <li><a href="#">Messages History</a></li>
                         </ul>
                     </li>
 
                     <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Email</a>
                         <ul>
-                            <li><a href="{{url('admin/create-email')}}">Create Email</a></li>
-                            <li><a href="{{url('admin/emails')}}">Sent Emails</a></li>
+                            <li><a href="#">Singel Email</a></li>
+                            <li><a href="#">Group Emails</a></li>
+                            <li><a href="#">Email History</a></li>
                         </ul>
                     </li>
 
                     <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Others</a>
                         <ul>
-                            <li><a href="#">Courses</a></li>
+                            <li><a href="#">Contact Messages</a></li>
+                            <li><a href="#">Programs</a></li>
                             <li><a href="#">Admissions</a></li>
-                            <li><a href="#">Sliders</a></li>
                             <li><a href="#">Email Exports</a></li>
                             <li><a href="#">Mobile No Exports</a></li>
                             <li><a href="#">Database Backup</a></li>
