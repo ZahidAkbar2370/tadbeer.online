@@ -16,10 +16,6 @@ return new class extends Migration
         Schema::create('tadbeer_profile_settings', function (Blueprint $table) {
             $table->id();
             $table->string("welcome_message")->nullable();
-            $table->string("welcome_message")->nullable();
-            $table->string("welcome_message")->nullable();
-            $table->string("welcome_message")->nullable();
-            $table->timestamps();
         });
     }
 

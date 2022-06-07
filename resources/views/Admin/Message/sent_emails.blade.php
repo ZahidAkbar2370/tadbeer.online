@@ -36,7 +36,7 @@
                       
                       <aside class="lg-side">
                         <div class="inbox-head">
-                          <h3 class="input-text">SMS</h3>
+                          <h3 class="input-text">EMAIL</h3>
                           <form action="#" class="pull-right position">
                             <div class="input-append inner-append">
                               <input type="text" class="sr-input" placeholder="Search Mail">
@@ -93,21 +93,24 @@
                         <div class="table-responsive">
                           <table class="table table-inbox table-hover table-responsive">
                             <tbody>
+                              @if(!empty($allEmails))
+                              @foreach($allEmails as $email)
                               <tr style="width: 100% !important">
                                 <td  style="width: 20px !important">
-                                    <span>1</span>
+                                    <span>{{$email->email}}</span>
                                 </td>
 
                                 <td  style="width: 50px !important">
                                   <span>3081312527</span>
                                 </td>
                                 {{-- <td class="inbox-small-cells"><i class="ti-star"></i></td> --}}
-                                <td   style="width: 150px !important">Zahid Akbar</td>
-                                <td   style="width: 620px !important">This is Test Message</td>
+                                <td   style="width: 210px !important">{{$email->subject}}</td>
+                                <td   style="width: 570px !important">{{$email->message}}</td>
                                 {{-- <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td> --}}
-                                <td    style="width: 70px !important" class="text-right">9:27 AM</td>
+                                <td    style="width: 120px !important" class="text-right">{{$email->created_at->diffForHumans()}}</td>
                               </tr>
-                            
+                            @endforeach
+                            @endif
                             </tbody>
                           </table>
                         </div>

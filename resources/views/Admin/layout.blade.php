@@ -112,18 +112,18 @@
                         <ul>
                             <li><a href="#">Singel Email</a></li>
                             <li><a href="#">Group Emails</a></li>
-                            <li><a href="#">Email History</a></li>
+                            <li><a href="{{url('admin/view-sent-email')}}">Email History</a></li>
                         </ul>
                     </li>
 
                     <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Others</a>
                         <ul>
-                            <li><a href="#">Contact Messages</a></li>
-                            <li><a href="#">Programs</a></li>
-                            <li><a href="#">Admissions</a></li>
-                            <li><a href="#">Email Exports</a></li>
-                            <li><a href="#">Mobile No Exports</a></li>
-                            <li><a href="#">Database Backup</a></li>
+                            <li><a href="{{url('admin/view-contact-messages')}}">Contact Messages</a></li>
+                            <li><a href="{{url('admin/view-programs')}}">Programs</a></li>
+                            <li><a href="{{url('admin/view-admissions')}}">Admissions</a></li>
+                            <li><a href="{{url('admin/view-email-export')}}">Email Exports</a></li>
+                            <li><a href="{{url('admin/view-mobile-no-export')}}">Mobile No Exports</a></li>
+                            <li><a href="#"  onclick="return confirm('Do You Want to Export Database?')">Database Backup</a></li>
                         </ul>
                     </li>
                     

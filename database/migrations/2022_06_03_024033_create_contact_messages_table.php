@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("email");
             $table->string("mobile_no");
             $table->longText("message");
-            $table->enum("status",["pending","done"])->default("panding");
+            $table->enum("status",["pending","done"])->default("pending");
             $table->timestamps();
         });
     }

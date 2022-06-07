@@ -9,7 +9,7 @@
                     <div class="col-lg-8 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>All Sliders</span></h1>
+                                <h1>All News & Events</span></h1>
                             </div>
                         </div>
                     </div>
@@ -25,16 +25,16 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr#</th>
-                                                    <th>Slider Text</th>
-                                                    <th>Slider Image</th>
-                                                    <th>Button Text</th>
-                                                    <th>Button URL</th>
+                                                    <th>Title</th>
+                                                    <th>Image</th>
+                                                    <th>Type</th>
+                                                    <th>Description</th>
                                                     <th>Publication Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                {{-- <tr>
                                                     <td>1</td>
                                                     <td>Zahid AKbar</td>
                                                     <td>Laravel</td>
@@ -47,29 +47,33 @@
                                                     </td>
 
                                                     <td>
-                                                        {{-- <a href="#" class="btn btn-dark" data-toggle="modal" data-target="#add-category"><i class="ti-eye"></i></a> --}}
+                                                        <a href="#" class="btn btn-dark" data-toggle="modal" data-target="#add-category"><i class="ti-eye"></i></a>
                                                         <a href="#" class="btn btn-info"><li class="ti-pencil-alt"></li></a>
                                                         <a href="#" class="btn btn-danger" onclick="return confirm('Do You want to Delete Script?')"><i class="ti-trash"></i></a>
                                                     </td>
                                                     
-                                                </tr>
-                                                @if(!empty($allUsers))
-                                                @foreach($allUsers as $user)
+                                                </tr> --}}
+                                                @if(!empty($allNewsUpdates))
+                                                @foreach($allNewsUpdates as $news_update)
                                                 <tr>
-                                                    <td>{{$user->name}}</td>
-                                                    <td>{{$user->email}}</td>
-                                                    <td>{{$user->role}}</td>
+                                                    <td>{{$news_update->id}}</td>
+                                                    <td>{{$news_update->title}}</td>
+                                                    <td><img src="{{$news_update->image_url}}" alt="" style="width: 50px;height: 50px;"></td>
+                                                    <td>{{$news_update->type}}</td>
+                                                    <td>{{$news_update->description}}</td>
+                                                    
+                                                    
 
-                                                    @if($user->status == "1")
+                                                    @if($news_update->publication_status == "1")
                                                         <td>Active</td>
                                                     @else
                                                         <td>In-Active</td>
                                                     @endif
 
-                                                    @if($user->status == "1")
-                                                        <td><a href="update-user-status/{{$user->id}}/0" class="btn btn-danger">InActive</a></td>
+                                                    @if($news_update->publication_status == "1")
+                                                        <td><a href="active-news-update/{{$news_update->id}}/0" class="btn btn-danger">InActive</a></td>
                                                     @else
-                                                        <td><a href="update-user-status/{{$user->id}}/1" class="btn btn-success">Active</a></td>
+                                                        <td><a href="inactive-news-update/{{$news_update->id}}/1" class="btn btn-success">Active</a></td>
                                                     @endif
                                                 </tr>
                                                 @endforeach
