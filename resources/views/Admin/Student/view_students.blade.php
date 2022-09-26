@@ -26,48 +26,60 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr#</th>
-                                                    <th>Category Name</th>
-                                                    <th>Optional</th>
-                                                    <th>Publication Status</th>
-                                                    <th>Action</th>
+                                                    <th>Name</th>
+                                                    <th>Father Name</th>
+                                                    <th>DOB</th>
+                                                    <th>CNIC</th>
+                                                    <th>Address</th>
+                                                    <th>Madrassa total Marks</th>
+                                                    <th>Madrassa Otained Marks</th>
+                                                    <th>Madrassa percentage</th>
+                                                    <th>Madrassa Name</th>
+                                                    <th>Madrassa board</th>
+                                                    <th>Bachlors Obtained marks</th>
+                                                    <th>Bachlors percentage</th>
+                                                    <th>Bachlors university</th>
+                                                    <th>Master Obtained marks</th>
+                                                    <th>Master Percentage</th>
+                                                    <th>Master Uni Name</th>
+                                                    <th>Optional Skill</th>
+                                                    <th>Optional expert</th>
+                                                    <th>Question 1</th>
+                                                    <th>Question 2</th>
+                                                    <th>Question 3</th>
+                                                    <th>Question 4</th>
+                                                    <th>Question 5</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+
+                                                @if(!empty($Students))
+                                                @foreach($Students as $student)
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Zahid AKbar</td>
-                                                    <td>Laravel</td>
-
-                                                    <td>
-                                                        <a href="#" class="btn btn-danger">InActive</a>
-                                                        <a href="#" class="btn btn-success">Active</a>
-                                                    </td>
-
-                                                    <td>
-                                                        {{-- <a href="#" class="btn btn-dark" data-toggle="modal" data-target="#add-category"><i class="ti-eye"></i></a> --}}
-                                                        <a href="#" class="btn btn-info"><li class="ti-pencil-alt"></li></a>
-                                                        <a href="#" class="btn btn-danger" onclick="return confirm('Do You want to Delete Script?')"><i class="ti-trash"></i></a>
-                                                    </td>
-                                                    
-                                                </tr>
-                                                @if(!empty($allUsers))
-                                                @foreach($allUsers as $user)
-                                                <tr>
-                                                    <td>{{$user->name}}</td>
-                                                    <td>{{$user->email}}</td>
-                                                    <td>{{$user->role}}</td>
-
-                                                    @if($user->status == "1")
-                                                        <td>Active</td>
-                                                    @else
-                                                        <td>In-Active</td>
-                                                    @endif
-
-                                                    @if($user->status == "1")
-                                                        <td><a href="update-user-status/{{$user->id}}/0" class="btn btn-danger">InActive</a></td>
-                                                    @else
-                                                        <td><a href="update-user-status/{{$user->id}}/1" class="btn btn-success">Active</a></td>
-                                                    @endif
+                                                    <td>{{ $student->id }}</td>
+                                                    <td>Abid</td>
+                                                    <td>{{$student->father_name}}</td>
+                                                    <td>{{$student->date_of_birth}}</td>
+                                                    <td>{{$student->cnic_no}}</td>
+                                                    <td>{{$student->parmanent_address}}</td>
+                                                    <td>{{$student->madrassah_total_marks}}</td>
+                                                    <td>{{$student->madrassah_obtained_marks}}</td>
+                                                    <td>{{$student->madrassah_percentage}}</td>
+                                                    <td>{{$student->madrassah_name}}</td>
+                                                    <td>{{$student->madrassah_board}}</td>
+                                                    <td>{{$student->bachelors_obtained_marks}}</td>
+                                                    <td>{{$student->bachelors_percentage}}</td>
+                                                    <td>{{$student->bachelors_university}}</td>
+                                                    <td>{{$student->master_obtained_marks}}</td>
+                                                    <td>{{$student->master_percentage}}</td>
+                                                    <td>{{$student->master_university_name}}</td>
+                                                    <td>{{$student->optional_skill}}</td>
+                                                    <td>{{$student->optional_expert}}</td>
+                                                    <td>{{$student->question_1}}</td>
+                                                    <td>{{$student->question_2}}</td>
+                                                    <td>{{$student->question_3}}</td>
+                                                    <td>{{$student->question_4}}</td>
+                                                    <td>{{$student->question_5}}</td>
                                                 </tr>
                                                 @endforeach
                                                 @endif
@@ -87,7 +99,7 @@
     </div>
 
 
-    
+
 
     <!-- Modal Add Category -->
     <div class="modal fade none-border" id="add-category">
@@ -129,5 +141,5 @@
       </div>
       <!-- END MODAL -->
 
-      
+
 @endsection

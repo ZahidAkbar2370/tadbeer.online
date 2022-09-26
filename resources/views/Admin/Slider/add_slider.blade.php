@@ -17,14 +17,14 @@
                 <!-- /# row -->
                 <section id="main-content">
                     <div class="row">
-                        
+
                         <div class="col-lg-12">
                             <h4>Create New Slider</h4>
                             <div class="card">
-                               
+
                                 <div class="card-body">
                                     <div class="basic-elements">
-                                        <form action="#" method="post"  enctype="multipart/form-data">
+                                        <form action="{{ url('admin/create-slider') }}" method="post"  enctype="multipart/form-data">
                                             @csrf
                                             <div class="row">
 
@@ -54,24 +54,24 @@
                                                     <div class="row">
                                                         <div class="col-lg-1">
                                                             <div class="form-group">
-                                                                
+
                                                                 <a href="#" data-toggle="modal" data-target="#add-category" title="Select From Media"><button class="btn btn-primary"><i class="ti-gallery"></i></button></a>
                                                             </div>
-                                    
+
                                                         </div>
 
                                                         <div class="col-lg-10 ml-1">
                                                             <div class="form-group">
                                                                 <input type="text" class="form-control" name="image_url" id="thumbnail-value" placeholder="Please Select Thumbnail From Media" readonly style="width=200px !important;">
                                                             </div>
-                                    
+
                                                         </div>
                                                     </div>
-                                                            
-                                                    
+
+
                                                 </div>
 
-                                                
+
                                             </div>
 
                                             <div class="row">
@@ -112,7 +112,7 @@
             <div class="modal-body" style="overflow-y: scroll; max-height: 200px">
               <form>
                 <div class="row">
-                    
+
                     <div class="col-md-3">
                         <a onclick="Thumbnail(1)" href="#" data-dismiss="modal"><img src="{{asset('Images/Offering/laravelvuereact.jpeg')}}" id="image-1" style="width:100px" alt=""/></a>
                     </div>

@@ -50,9 +50,9 @@
                                 class="badge badge-primary">2</span> <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="{{url('shop-panel')}}">Dashboard</a></li>
-                            <li><a href="{{url('shop-add-user')}}">Add User</a></li>
-                            <li><a href="{{url('shop-view-users')}}">View Users</a></li>
+                            <li><a href="{{url('admin/dashboard')}}">Dashboard</a></li>
+                            <li><a href="{{url('admin/add-user')}}">Add User</a></li>
+                            <li><a href="{{url('admin/view-users')}}">View Users</a></li>
                         </ul>
                     </li>
                     {{-- <li>
@@ -76,12 +76,18 @@
                     </li> --}}
 
 
-                    
+
                     {{-- <li><a href="#"><i class="ti-file"></i>Registrations</a></li> --}}
                     <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Registration</a>
                         <ul>
-                            <li><a href="#">New Registration</a></li>
-                            <li><a href="#">List Registrations</a></li>
+                            <li><a href="{{ url('admin/view-registrations') }}">View Registrations</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Admission</a>
+                        <ul>
+                            <li><a href="{{ url('admin/add-admission') }}">Add Admission</a></li>
+                            <li><a href="{{ url('admin/view-admissions') }}">View Admissions</a></li>
                         </ul>
                     </li>
 
@@ -126,7 +132,7 @@
                             <li><a href="#"  onclick="return confirm('Do You Want to Export Database?')">Database Backup</a></li>
                         </ul>
                     </li>
-                    
+
                     {{-- <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Charts <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
@@ -366,7 +372,7 @@
                                             </li>
 
                                             <li>
-                                                
+
                                                 <a href="#">
                                                     <i class="ti-power-off"></i>
                                                     <span>Logout</span>

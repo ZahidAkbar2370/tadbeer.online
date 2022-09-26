@@ -23,14 +23,15 @@
                                 <h4>Create User</h4>
                                 <div class="card-body">
                                     <div class="basic-elements">
-                                        <form action="{{ url('admin/create-user') }}" method="post">
+                                        <form action="{{ url('admin/update-user') }}/{{ $editUser->id }}" method="post">
+                                            <input type="hidden" name="id" value="{{ $editUser->id }}">
                                             @csrf
                                             <div class="row">
 
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>User Name</label>
-                                                        <input type="text" class="form-control" name="user_name">
+                                                        <input type="text" class="form-control" value="{{ $editUser->name }}" name="user_name">
                                                     </div>
                                                 </div>
 
@@ -38,14 +39,14 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Email</label>
-                                                        <input type="email" class="form-control" name="email">
+                                                        <input type="email" class="form-control" value="{{ $editUser->email }}"  name="email">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Password</label>
-                                                        <input type="password" class="form-control" name="password">
+                                                        <input type="password" class="form-control" value="{{ $editUser->password }}" name="password">
                                                     </div>
                                                 </div>
 

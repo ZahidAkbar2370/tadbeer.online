@@ -19,7 +19,7 @@
                     <div class="row">
 
                         <div class="col-lg-12">
-                            <h4>Create New News/Update</h4>
+                            <h4>Update News/Update</h4>
                             <div class="card">
 
                                 <div class="card-body">
@@ -31,14 +31,14 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Title</label>
-                                                        <input type="text" class="form-control" name="title">
+                                                        <input type="text" class="form-control" value="{{ $editNews->title }}" name="title">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Description</label>
-                                                        <input type="text" class="form-control" name="description">
+                                                        <input type="text" class="form-control" value="{{ $editNews->description }}" name="description">
                                                     </div>
                                                 </div>
 
@@ -47,8 +47,8 @@
                                                         <label>Type</label>
                                                         <select class="form-control" name="type">
                                                             <option value="">Select Type</option>
-                                                            <option value="news">News</option>
-                                                            <option value="event">Event</option>
+                                                            <option @if($editNews->type=='news') selected @endif; value="news">News</option>
+                                                            <option @if($editNews->type=='event') selected @endif; value="event">Event</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -66,7 +66,7 @@
 
                                                         <div class="col-lg-10 ml-1">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="image_url" id="thumbnail-value" placeholder="Please Select Thumbnail From Media" readonly style="width=200px !important;">
+                                                                <input type="text" class="form-control" value="{{ $editNews->image_url }}" name="image_url" id="thumbnail-value" placeholder="Please Select Thumbnail From Media" readonly style="width=200px !important;">
                                                             </div>
 
                                                         </div>
@@ -82,7 +82,7 @@
                                                 <div class="col-lg-6">
 
                                                     <div class="form-group">
-                                                        <input type="submit" class="btn btn-primary" value="Create">
+                                                        <input type="submit" class="btn btn-primary" value="Update">
                                                     </div>
 
                                                 </div>

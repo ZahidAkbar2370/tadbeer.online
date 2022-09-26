@@ -42,7 +42,7 @@
                                                     <td>{{$admission->end_date}}</td>
                                                     <td><img src="{{$admission->image_url}}" alt="" style="width: 50px;height: 50px;"></td>
 
-                                                    <td><a href="#" class="btn btn-success">Delete</a></td>
+                                                    <td><a href="{{ url('admin/delete-admission') }}/{{ $admission->id }}" class="btn btn-danger">Delete</a></td>
                                                 </tr>
                                                 @endforeach
                                                 @endif
@@ -61,5 +61,5 @@
         </div>
     </div>
 
-      
+
 @endsection

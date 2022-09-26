@@ -9,7 +9,7 @@
                     <div class="col-lg-8 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>News & Update</h1>
+                                <h1>Admission</h1>
                             </div>
                         </div>
                     </div>
@@ -19,12 +19,11 @@
                     <div class="row">
 
                         <div class="col-lg-12">
-                            <h4>Create New News/Update</h4>
                             <div class="card">
-
+                                <h4>Create Admission</h4>
                                 <div class="card-body">
                                     <div class="basic-elements">
-                                        <form action="{{ url('admin/create-news&update') }}" method="post"  enctype="multipart/form-data">
+                                        <form action="{{ url('admin/create-admission') }}" method="post">
                                             @csrf
                                             <div class="row">
 
@@ -35,21 +34,18 @@
                                                     </div>
                                                 </div>
 
+
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
-                                                        <label>Description</label>
-                                                        <input type="text" class="form-control" name="description">
+                                                        <label>Start Date</label>
+                                                        <input type="date" class="form-control" name="start_date">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
-                                                        <label>Type</label>
-                                                        <select class="form-control" name="type">
-                                                            <option value="">Select Type</option>
-                                                            <option value="news">News</option>
-                                                            <option value="event">Event</option>
-                                                        </select>
+                                                        <label>End Date</label>
+                                                        <input type="date" class="form-control" name="end_date">
                                                     </div>
                                                 </div>
 
@@ -103,7 +99,7 @@
 
 
 
-    <!-- Modal Add Category -->
+       <!-- Modal Add Category -->
     <div class="modal fade none-border" id="add-category">
         <div class="modal-dialog">
           <div class="modal-content">

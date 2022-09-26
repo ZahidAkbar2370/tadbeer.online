@@ -9,7 +9,7 @@
                     <div class="col-lg-8 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>News & Update</h1>
+                                <h1>Slider</h1>
                             </div>
                         </div>
                     </div>
@@ -19,37 +19,34 @@
                     <div class="row">
 
                         <div class="col-lg-12">
-                            <h4>Create New News/Update</h4>
+                            <h4>Edit Slider</h4>
                             <div class="card">
 
                                 <div class="card-body">
                                     <div class="basic-elements">
-                                        <form action="{{ url('admin/create-news&update') }}" method="post"  enctype="multipart/form-data">
+                                        <form action="{{ url('admin/update-slider') }}/{{ $editSlider->id }}" method="post"  enctype="multipart/form-data">
+                                            <input type="hidden" name="id" value="{{ $editSlider->id  }}">
                                             @csrf
                                             <div class="row">
 
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
-                                                        <label>Title</label>
-                                                        <input type="text" class="form-control" name="title">
+                                                        <label>Slider Text</label>
+                                                        <input type="text" class="form-control" value="{{ $editSlider->slider_text }}" name="slider_text">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
-                                                        <label>Description</label>
-                                                        <input type="text" class="form-control" name="description">
+                                                        <label>Button Text</label>
+                                                        <input type="text" class="form-control" value="{{ $editSlider->button_text }}" name="button_text">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
-                                                        <label>Type</label>
-                                                        <select class="form-control" name="type">
-                                                            <option value="">Select Type</option>
-                                                            <option value="news">News</option>
-                                                            <option value="event">Event</option>
-                                                        </select>
+                                                        <label>Button URL</label>
+                                                        <input type="text" class="form-control" value="{{ $editSlider->button_url }}" name="button_url">
                                                     </div>
                                                 </div>
 
@@ -66,7 +63,7 @@
 
                                                         <div class="col-lg-10 ml-1">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="image_url" id="thumbnail-value" placeholder="Please Select Thumbnail From Media" readonly style="width=200px !important;">
+                                                                <input type="text" class="form-control" value="{{ $editSlider->image_url }}" name="image_url" id="thumbnail-value" placeholder="Please Select Thumbnail From Media" readonly style="width=200px !important;">
                                                             </div>
 
                                                         </div>
@@ -82,7 +79,7 @@
                                                 <div class="col-lg-6">
 
                                                     <div class="form-group">
-                                                        <input type="submit" class="btn btn-primary" value="Create">
+                                                        <input type="submit" class="btn btn-primary" value="Update">
                                                     </div>
 
                                                 </div>

@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\AdmissionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\NewsEventController;
+use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,32 +44,66 @@ Route::get('events-and-news', function () {
 
 
 Route::group(["prefix" => 'admin'], function(){
-    Route::get('layout', function () {
-        return view('Admin.layout');
+    Route::get('dashboard', function () {
+        return view('Admin.Dashboard.dashboard');
     });
 
     // Route::get('view-sliders', function () {
     //     return view('Admin.Slider.view_sliders');
     // });
+
+    //User
+    Route::get('view-users', [UserController::class, 'viewUser']);
+    Route::get('add-user', [UserController::class, 'addUser']);
+    Route::post('create-user',[UserController::class, 'createUser']);
+    Route::get('delete-user/{id}', [UserController::class, 'deleteUser']);
+    Route::get('edit-user/{id}', [UserController::class, 'editUser']);
+    Route::post('update-user/{id}', [UserController::class, 'updateUser']);
+
+    //Registraions
+    Route::get('view-registrations', [StudentController::class, 'viewStudents']);
+
+    //Admissions
+    Route::get('view-admissions', [AdmissionController::class, 'viewAdmissions']);
+    Route::get('add-admission', [AdmissionController::class, 'addAdmission']);
+    Route::post('create-admission', [AdmissionController::class, 'createAdmission']);
+    Route::get('delete-admission/{id}', [AdmissionController::class, 'deleteAdmission']);
+    //Slider
+
     Route::get("view-sliders","App\Http\Controllers\Admin\SliderController@index");
 
     Route::get('add-slider', function () {
         return view('Admin.Slider.add_slider');
     });
 
-    // Route::get('view-news-and-updates', function () {
-    //     return view('Admin.NewsAndUpdate.view_news_and_updates');
-    // });
-    Route::get("view-news-and-updates","App\Http\Controllers\Admin\NewsEventController@index");
-    Route::get("view-contact-messages","App\Http\Controllers\Admin\ContactMessageController@index");
-    Route::get("view-sent-email","App\Http\Controllers\Admin\EmailController@index");
-    Route::get("view-programs","App\Http\Controllers\Admin\ProgramController@index");
-    Route::get("view-admissions","App\Http\Controllers\Admin\AdmissionController@index");
-    Route::get("view-email-export","App\Http\Controllers\Admin\EmailExportController@index");
-    Route::get("view-mobile-no-export","App\Http\Controllers\Admin\MobileNoExportController@index");
-    Route::get("database-export","App\Http\Controllers\Admin\DatabaseExportController@export");
+    Route::post('create-slider', [SliderController::class, 'createSlider']);
+    Route::get('active-slider/{id}', [SliderController::class, 'activateSlider']);
+    Route::get('inactive-slider/{id}', [SliderController::class, 'inActivateSlider']);
+    Route::get('delete-slider/{id}', [SliderController::class, 'deleteSlider']);
+    Route::get('edit-slider/{id}', [SliderController::class, 'editSlider']);
+    Route::post('update-slider/{id}', [SliderController::class, 'updateSlider']);
+
+    //News & Updates
+    Route::get("view-news-and-updates",[NewsEventController::class,"index"]);
 
     Route::get('add-news-and-update', function () {
         return view('Admin.NewsAndUpdate.add_news_and_update');
     });
+
+    Route::post('create-news&update', [NewsEventController::class, 'createNewsUpdates']);
+    Route::get('inactive-news-update/{id}', [NewsEventController::class, 'inactiveNews']);
+    Route::get('active-news-update/{id}', [NewsEventController::class, 'activeNews']);
+    Route::get('delete-news-update/{id}', [NewsEventController::class, 'deleteNews']);
+    Route::get('edit-news-update/{id}', [NewsEventController::class, 'editNews']);
+
+    // Route::get('view-news-and-updates', function () {
+    //     return view('Admin.NewsAndUpdate.view_news_and_updates');
+    // });
+    Route::get("view-contact-messages","App\Http\Controllers\Admin\ContactMessageController@index");
+    Route::get("view-sent-email","App\Http\Controllers\Admin\EmailController@index");
+    Route::get("view-programs","App\Http\Controllers\Admin\ProgramController@index");
+    // Route::get("view-admissions","App\Http\Controllers\Admin\AdmissionController@index");
+    Route::get("view-email-export","App\Http\Controllers\Admin\EmailExportController@index");
+    Route::get("view-mobile-no-export","App\Http\Controllers\Admin\MobileNoExportController@index");
+    Route::get("database-export","App\Http\Controllers\Admin\DatabaseExportController@export");
 });

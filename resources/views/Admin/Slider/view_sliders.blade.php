@@ -1,4 +1,4 @@
-@extends("Admin.layout")
+@extends('Admin.layout')
 @section('content')
 
 
@@ -18,9 +18,12 @@
                 <section id="main-content">
                     <div class="row">
                         <div class="col-lg-12">
-                    <div class="card">
+                            <div class="card">
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
+                                        @if (Session::has('message'))
+                                            <p class="alert alert-info">{{ Session::get('message') }}</p>
+                                        @endif
                                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
@@ -51,31 +54,41 @@
                                                         <a href="#" class="btn btn-info"><li class="ti-pencil-alt"></li></a>
                                                         <a href="#" class="btn btn-danger" onclick="return confirm('Do You want to Delete Script?')"><i class="ti-trash"></i></a>
                                                     </td>
-                                                    
+
                                                 </tr> --}}
-                                                @if(!empty($allSliders))
-                                                @foreach($allSliders as $slider)
-                                                <tr>
-                                                    <td>{{$slider->id}}</td>
-                                                    <td>{{$slider->slider_text}}</td>
-                                                    <td><img src="{{$slider->image_url}}" alt="" style="width: 50px;height: 50px;"></td>
-                                                    <td>{{$slider->button_text}}</td>
-                                                    <td><a href="{{$slider->button_url}}" target="_blank">Button URL</a></td>
-                                                    
+                                                @if (!empty($allSliders))
+                                                    @foreach ($allSliders as $slider)
+                                                        <tr>
+                                                            <td>{{ $slider->id }}</td>
+                                                            <td>{{ $slider->slider_text }}</td>
+                                                            <td><img src="{{ $slider->image_url }}" alt=""
+                                                                    style="width: 50px;height: 50px;"></td>
+                                                            <td>{{ $slider->button_text }}</td>
+                                                            <td><a href="{{ $slider->button_url }}" target="_blank">Button
+                                                                    URL</a></td>
 
-                                                    @if($slider->publication_status == "1")
-                                                        <td>Active</td>
-                                                    @else
-                                                        <td>In-Active</td>
-                                                    @endif
 
-                                                    @if($slider->publication_status == "1")
-                                                        <td><a href="active-slider/{{$slider->id}}/0" class="btn btn-danger">InActive</a></td>
-                                                    @else
-                                                        <td><a href="inactive-slider/{{$slider->id}}/1" class="btn btn-success">Active</a></td>
-                                                    @endif
-                                                </tr>
-                                                @endforeach
+                                                            @if ($slider->publication_status == '1')
+                                                                <td>Active</td>
+                                                            @else
+                                                                <td>In-Active</td>
+                                                            @endif
+                                                            <td>
+
+                                                            @if ($slider->publication_status == '1')
+                                                               <a href="inactive-slider/{{ $slider->id }}"
+                                                                        class="btn btn-danger">InActive</a>
+                                                            @else
+                                                                <a href="active-slider/{{ $slider->id }}"
+                                                                        class="btn btn-success">Active</a>
+                                                            @endif
+                                                            <a href="edit-slider/{{ $slider->id }}"
+                                                                class="btn btn-info">Edit</a>
+                                                                <a href="delete-slider/{{ $slider->id }}"
+                                                                    class="btn btn-danger">Delete</a></td>
+
+                                                        </tr>
+                                                    @endforeach
                                                 @endif
                                             </tbody>
                                         </table>
@@ -92,5 +105,5 @@
         </div>
     </div>
 
-      
+
 @endsection
