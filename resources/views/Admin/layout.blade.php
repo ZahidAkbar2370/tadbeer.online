@@ -78,6 +78,7 @@
 
 
                     {{-- <li><a href="#"><i class="ti-file"></i>Registrations</a></li> --}}
+
                     <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Registration</a>
                         <ul>
                             <li><a href="{{ url('admin/view-registrations') }}">View Registrations</a></li>
@@ -103,6 +104,13 @@
                         <ul>
                             <li><a href="{{url('admin/add-news-and-update')}}">Create</a></li>
                             <li><a href="{{url('admin/view-news-and-updates')}}">All Listing</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="sidebar-sub-toggle"><i class="ti-home"></i>Programs</a>
+                        <ul>
+                            <li><a href="{{ url('admin/add-program') }}">Add Program</a></li>
+                            <li><a href="{{ url('admin/view-programs') }}">View Programs</a></li>
                         </ul>
                     </li>
 

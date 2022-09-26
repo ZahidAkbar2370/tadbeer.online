@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdmissionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\NewsEventController;
+use App\Http\Controllers\Admin\ProgramController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\UserController;
 
@@ -96,13 +97,21 @@ Route::group(["prefix" => 'admin'], function(){
     Route::get('delete-news-update/{id}', [NewsEventController::class, 'deleteNews']);
     Route::get('edit-news-update/{id}', [NewsEventController::class, 'editNews']);
 
+    //Programs
+    Route::get('add-program', [ProgramController::class, 'program']);
+    Route::get('view-programs', [ProgramController::class, 'viewPrograms']);
+    Route::post('create-program', [ProgramController::class, 'createProgram']);
+    Route::get('inactive-program/{id}', [ProgramController::class, 'inactiveProgram']);
+    Route::get('active-program/{id}', [ProgramController::class, 'activeProgram']);
+    Route::get('delete-program/{id}', [ProgramController::class, 'deleteProgram']);
+    Route::get('edit-program/{id}', [ProgramController::class, 'editProgram']);
+    Route::post('update-program/{id}', [ProgramController::class, 'updateProgram']);
+
     // Route::get('view-news-and-updates', function () {
     //     return view('Admin.NewsAndUpdate.view_news_and_updates');
     // });
     Route::get("view-contact-messages","App\Http\Controllers\Admin\ContactMessageController@index");
     Route::get("view-sent-email","App\Http\Controllers\Admin\EmailController@index");
-    Route::get("view-programs","App\Http\Controllers\Admin\ProgramController@index");
-    // Route::get("view-admissions","App\Http\Controllers\Admin\AdmissionController@index");
     Route::get("view-email-export","App\Http\Controllers\Admin\EmailExportController@index");
     Route::get("view-mobile-no-export","App\Http\Controllers\Admin\MobileNoExportController@index");
     Route::get("database-export","App\Http\Controllers\Admin\DatabaseExportController@export");
