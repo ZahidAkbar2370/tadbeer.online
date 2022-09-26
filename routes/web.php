@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\NewsEventController;
 use App\Http\Controllers\Admin\ProgramController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Frontend\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,10 @@ use App\Http\Controllers\Admin\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('Frontend.Page.home');
-});
+Route::get('/', [FrontendController::class, 'home']);
+// Route::get('/', function () {
+//     return view('Frontend.Page.home');
+// });
 
 Route::get('apply-online', function () {
     return view('Frontend.Registration.apply_form');

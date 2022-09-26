@@ -6,26 +6,32 @@
      <!-- start section -->
      <section class="p-0">
         <div class="swiper-container white-move mobileoff-fullscreen-top-space md-h-600px sm-h-500px" data-slider-options='{ "slidesPerView": 1, "loop": true, "pagination": { "el": ".swiper-pagination", "clickable": true }, "navigation": { "nextEl": ".swiper-button-next-nav", "prevEl": ".swiper-button-previous-nav" }, "autoplay": { "delay": 4500, "disableOnInteraction": false }, "keyboard": { "enabled": true, "onlyInViewport": true }, "effect": "slide" }'>
+
+
             <div class="swiper-wrapper">
-                <!-- start slider item -->
-                <div class="swiper-slide cover-background" style="background-image:url('https://via.placeholder.com/1920x900');">
+                @if(isset($homeSlider))
+            @foreach ($homeSlider as $slider)
+                <!-- start slider item https://via.placeholder.com/1920x900-->
+                <div class="swiper-slide cover-background" style="background-image:url('{{asset("$slider->image_url")}}');">
                     <div class="overlay-bg bg-gradient-dark-slate-blue"></div>
                     <div class="container h-100">
                         <div class="row h-100">
                             <div class="col-12 col-xl-6 col-lg-7 col-sm-8 h-100 d-flex justify-content-center flex-column position-relative">
-                                <p class="alt-font text-extra-medium text-white opacity-7 font-weight-300 margin-40px-bottom xs-margin-20px-bottom">Delivering beautiful digital products</p>
-                                <h2 class="alt-font text-shadow-double-large font-weight-600 text-white margin-55px-bottom w-90 md-w-100 md-no-text-shadow xs-margin-35px-bottom">Provide solutions to small agency</h2>
+                                {{-- <p class="alt-font text-extra-medium text-white opacity-7 font-weight-300 margin-40px-bottom xs-margin-20px-bottom">Delivering beautiful digital products</p> --}}
+                                <h2 class="alt-font text-shadow-double-large font-weight-600 text-white margin-55px-bottom w-90 md-w-100 md-no-text-shadow xs-margin-35px-bottom">{{ $slider->slider_text }}</h2>
                                 <div class="d-inline-block">
-                                    <a href="https://1.envato.market/AL7Oj" target="_blank" class="btn btn-fancy btn-medium btn-gradient-sky-blue-pink margin-30px-right xs-margin-15px-bottom">Purchase now</a>
-                                    <a href="our-process.html" class="btn btn-link btn-large text-white top-minus-5px font-weight-400">How we work</a>
+                                    <a href="{{ $slider->button_url }}" target="_blank" class="btn btn-fancy btn-medium btn-gradient-sky-blue-pink margin-30px-right xs-margin-15px-bottom">{{ $slider->button_text }}</a>
+                                    {{-- <a href="our-process.html" class="btn btn-link btn-large text-white top-minus-5px font-weight-400">How we work</a> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
+                @endif
                 <!-- end slider item -->
                 <!-- start slider item -->
-                <div class="swiper-slide cover-background" style="background-image:url('https://via.placeholder.com/1920x900');">
+                {{-- <div class="swiper-slide cover-background" style="background-image:url('https://via.placeholder.com/1920x900');">
                     <div class="overlay-bg bg-gradient-dark-slate-blue"></div>
                     <div class="container h-100">
                         <div class="row h-100">
@@ -39,10 +45,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- end slider item -->
                 <!-- start slider item -->
-                <div class="swiper-slide cover-background" style="background-image:url('https://via.placeholder.com/1920x900');">
+                {{-- <div class="swiper-slide cover-background" style="background-image:url('https://via.placeholder.com/1920x900');">
                     <div class="overlay-bg bg-gradient-dark-slate-blue"></div>
                     <div class="container h-100">
                         <div class="row h-100">
@@ -56,8 +62,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- end slider item -->                          
+                </div> --}}
+                <!-- end slider item -->
             </div>
             <!-- start slider pagination -->
             <div class="swiper-pagination swiper-light-pagination"></div>
@@ -66,6 +72,7 @@
             <!-- <div class="swiper-button-next-nav swiper-button-next rounded-circle slider-navigation-style-07"><i class="feather icon-feather-arrow-right"></i></div>
             <div class="swiper-button-previous-nav swiper-button-prev rounded-circle slider-navigation-style-07"><i class="feather icon-feather-arrow-left"></i></div>  -->
             <!-- end slider navigation -->
+
         </div>
     </section>
     <!-- end section -->
@@ -87,23 +94,30 @@
                         <div class="swiper-container slider-one-slide black-move" data-slider-options='{ "slidesPerView": 1, "loop": true, "pagination": { "el": ".swiper-pagination", "clickable": true }, "navigation": { "nextEl": ".swiper-button-next-nav", "prevEl": ".swiper-button-previous-nav" }, "autoplay": { "delay": 4500, "disableOnInteraction": false }, "keyboard": { "enabled": true, "onlyInViewport": true }, "effect": "slide" }'>
                             <div class="swiper-wrapper">
                                 <!-- start slider item -->
+                                @if(isset($welcomeVideos))
+                                @foreach ($welcomeVideos as $data)
+
                                 <div class="swiper-slide padding-15px-all">
                                     <div class="h-100 bg-white box-shadow position-relative">
-                                        <img src="https://via.placeholder.com/800x622" alt="">
+                                        <img src="{{ $data->image_url }}" alt="">
+                                        {{-- <video  src="{{URL::asset("$data->video_url")}}" controls>
+                                        </video> --}}
                                         <div class="padding-4-half-rem-lr padding-3-half-rem-tb feature-box feature-box-left-icon-middle last-paragraph-no-margin lg-padding-2-half-rem-lr sm-padding-4-rem-lr xs-padding-2-rem-all">
                                             <div class="feature-box-icon margin-40px-right lg-margin-35px-right xs-margin-15px-right">
-                                                <h4 class="alt-font font-weight-600 text-extra-dark-gray mb-0">01</h4>
+                                                <h4 class="alt-font font-weight-600 text-extra-dark-gray mb-0">{{ $data->id }}</h4>
                                             </div>
                                             <div class="feature-box-content padding-40px-left border-left border-width-2px border-color-shamrock-green lg-padding-35px-left xs-padding-15px-left">
-                                                <span class="text-extra-dark-gray alt-font font-weight-500 d-block text-extra-medium margin-5px-bottom">Welcome To Tadbeer CSS Program</span>
-                                                <p>Lorem ipsum dolor sit amet consectetur do eiusmod tempor incididunt elit.</p>
+                                                <span class="text-extra-dark-gray alt-font font-weight-500 d-block text-extra-medium margin-5px-bottom">{{ $data->title }}</span>
+                                                <p>{{ $data->short_introduction }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
+                                @endif
                                 <!-- end slider item -->
                                 <!-- start slider item -->
-                                <div class="swiper-slide padding-15px-all">
+                                {{-- <div class="swiper-slide padding-15px-all">
                                     <div class="h-100 bg-white box-shadow position-relative">
                                         <img src="https://via.placeholder.com/800x622" alt="">
                                         <div class="padding-4-half-rem-lr padding-3-half-rem-tb feature-box feature-box-left-icon-middle last-paragraph-no-margin lg-padding-2-half-rem-lr sm-padding-4-rem-lr xs-padding-2-rem-all">
@@ -116,10 +130,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <!-- end slider item -->
                                 <!-- start slider item -->
-                                <div class="swiper-slide padding-15px-all">
+                                {{-- <div class="swiper-slide padding-15px-all">
                                     <div class="h-100 bg-white box-shadow position-relative">
                                         <img src="https://via.placeholder.com/800x622" alt="">
                                         <div class="padding-4-half-rem-lr padding-3-half-rem-tb feature-box feature-box-left-icon-middle last-paragraph-no-margin lg-padding-2-half-rem-lr sm-padding-4-rem-lr xs-padding-2-rem-all">
@@ -132,7 +146,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <!-- end slider item -->
                             </div>
                         </div>
@@ -150,9 +164,9 @@
                             <b class="text-decoration-line-bottom-thick padding-5px-bottom is-visible">Tadbeer</b>
                             {{-- <b class="text-decoration-line-bottom-thick padding-5px-bottom">CSS</b>
                             <b class="text-decoration-line-bottom-thick padding-5px-bottom">Program</b> --}}
-                            
+
                         </span>
-                    </h4>                            
+                    </h4>
                     <p class="w-90 md-w-100 margin-30px-bottom">Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor incididunt ut labore et dolore magna ut enim ad minim veniam nostrud exercitation.</p>
                     <ul class="w-90 list-style-01 font-weight-500 text-extra-dark-gray lg-w-100 sm-w-85 xs-w-100">
                         <li><i class="fas fa-check text-extra-medium-gray"></i> Welcome To Tadbeer CSS Programm
@@ -183,7 +197,7 @@
 
 
 
-          <!-- start section --> 
+          <!-- start section -->
           <section class="bg-light-gray wow animate__fadeIn">
             <div class="container">
                 <div class="row justify-content-center">
@@ -192,21 +206,29 @@
                         <p class="w-80 mx-auto md-w-100 mb-0">Lorem ipsum dolor amet consectetur adipiscing elit eiusmod tempor incididunt ut labore et dolore magna</p>
                     </div>
                 </div>
-                <div class="row"> 
+                <div class="row">
                     <div class="col-12 blog-content">
                         <ul class="blog-grid blog-wrapper grid grid-loading grid-3col xl-grid-3col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large">
                             <li class="grid-sizer"></li>
                             <!-- start blog item -->
+                            @if(isset($newsEvents))
+                            @foreach($newsEvents as $news)
                             <li class="grid-item wow animate__fadeIn">
+
+
                                 <div class="blog-post border-radius-5px bg-white box-shadow-medium">
                                     <div class="blog-post-image bg-medium-slate-blue">
-                                        <a href="blog-post-layout-01.html" title=""><img src="https://via.placeholder.com/800x560" alt=""></a>
+                                        <a href="blog-post-layout-01.html" title=""><img src="{{ $news->image_url }}" alt=""></a>
+                                        @if($news->type == 'news')
+                                        <a href="blog-masonry.html" class="blog-category alt-font">News</a>
+                                        @else
                                         <a href="blog-masonry.html" class="blog-category alt-font">Event</a>
+                                        @endif
                                     </div>
                                     <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">
                                         <a href="blog-masonry.html" class="alt-font text-small text-shamrock-green-hover d-inline-block margin-10px-bottom">18 February 2020</a>
-                                        <a href="blog-post-layout-01.html" class="alt-font font-weight-500 text-extra-medium text-extra-dark-gray text-shamrock-green-hover margin-15px-bottom d-block">Your Event Name</a>
-                                        <p>Lorem ipsum is simply dummy text printing typesetting industry lorem ipsum been dummy...</p>
+                                        <a href="blog-post-layout-01.html" class="alt-font font-weight-500 text-extra-medium text-extra-dark-gray text-shamrock-green-hover margin-15px-bottom d-block">{{ $news->title }}</a>
+                                        <p>{{ $news->description }}</p>
                                         {{-- <div class="d-flex align-items-center">
                                             <img class="avtar-image" src="https://via.placeholder.com/125x125" alt=""/>
                                             <span class="alt-font text-small me-auto">By <a href="blog-masonry.html" class="text-shamrock-green-hover">Torrie asai</a></span>
@@ -215,6 +237,8 @@
                                     </div>
                                 </div>
                             </li>
+                            @endforeach
+                            @endif
                             <!-- end blog item -->
                             <!-- start blog item -->
                             <li class="grid-item wow animate__fadeIn" data-wow-delay="0.2s">
@@ -259,7 +283,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row"> 
+                <div class="row">
                     <div class="col-12 text-center">
                         <a href="blog-masonry.html" class="btn btn-link thin btn-extra-large text-extra-dark-gray margin-70px-top d-inline-block md-margin-40px-top sm-margin-20px-top">View all articles</a>
                     </div>
@@ -270,7 +294,7 @@
 
 
 
-        
+
         <!-- start section -->
         <section class="overflow-visible"  style="margin-top: 80px !important;padding:0%;">
             <div class="container-fluid">
@@ -296,5 +320,5 @@
         </section>
         <!-- end section -->
 
-    
+
 @endsection
